@@ -1,4 +1,5 @@
 # Groovy CLI Graal Native Image Micronaut Example
+[![Push to GitHub Container Registry](https://github.com/cloudogu/groovy-cli-graal-nativeimage-micronaut-example/actions/workflows/push-ghcr.yaml/badge.svg?branch=main)](https://github.com/cloudogu/groovy-cli-graal-nativeimage-micronaut-example/actions/workflows/push-ghcr.yaml)
 
 An example CLI app written in Groovy, using micronaut, compiling into a static binary via Graal native image.
 
@@ -9,19 +10,24 @@ This project is for those who'd like to try anyway.
 
 ## Create and run image
 
+The result can also be found at [ghcr.io/cloudogu/groovy-cli-graal-nativeimage-micronaut-example](https://ghcr.io/cloudogu/groovy-cli-graal-nativeimage-micronaut-example)
+
 ```shell
 # First build takes a couple of minutes!
 $ docker build -t groovy .
 
-# Run
+# Run image built locally
 $ docker run --rm groovy -v
-# Interesting: Size of static Binary without additional JRE
+# Or pull and run remote image
+$ docker run --rm ghcr.io/cloudogu/groovy-cli-graal-nativeimage-micronaut-example
+
+# Interesting: Size of static Binary without additional JRE (uncompressed! on the registry it's about 1/4 the size)
 $ docker images groovy
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 groovy          latest    c5f9ff7e61c6   50 minutes ago   76.9MB
 ```
 
-This should also work without `Dockerfile` using `./mvnw package -Dpackaging=docker-native` but this fails.
+The build should also work without `Dockerfile` using `./mvnw package -Dpackaging=docker-native` but this fails.
 Passing the same arguments as in `Dockerfile` also fails: 
 
 ```shell
