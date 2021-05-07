@@ -1,0 +1,9 @@
+# Ignore all
+*
+# Whitelist
+!src
+!pom.xml
+!mvnw
+!.mvn
+!compiler.groovy
+!micronaut-cli.yml

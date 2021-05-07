@@ -15,7 +15,8 @@
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>1.8</jdk.version>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <!-- If you are building with JDK 9 or higher, you can uncomment the lines below to set the release version -->
     <!-- <release.version>8</release.version> -->
     <micronaut.version>2.5.0</micronaut.version>
@@ -110,6 +111,9 @@
         <groupId>org.codehaus.gmavenplus</groupId>
         <artifactId>gmavenplus-plugin</artifactId>
         <version>1.9.0</version>
+        <configuration>
+          <configScript>compiler.groovy</configScript>
+        </configuration>
         <executions>
           <execution>
             <goals>
