@@ -39,6 +39,10 @@ RUN native-image -Dgroovy.grape.enable=false \
     -jar $(ls -S target/*.jar | head -n 1) \
     app
 
-FROM scratch
+FROM debian:bullseye-20220316-slim
+#FROM frolvlad/alpine-glibc:alpine-3.15_glibc-2.34
+#FROM alpine:3.15.1
+#FROM scratch
+
 COPY --from=native-image /app/app /app
 ENTRYPOINT ["/app"]

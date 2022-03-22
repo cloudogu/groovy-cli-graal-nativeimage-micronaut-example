@@ -1,12 +1,8 @@
 package groovy.cli.graal.nativeimage.micronaut.example
 
 import io.micronaut.configuration.picocli.PicocliRunner
-import io.micronaut.context.ApplicationContext
-
-import picocli.CommandLine
 import picocli.CommandLine.Command
 import picocli.CommandLine.Option
-import picocli.CommandLine.Parameters
 
 @Command(name = 'groovy-cli-graal-nativeimage-micronaut-example', description = '...',
         mixinStandardHelpOptions = true)
@@ -23,6 +19,8 @@ class GroovyCliGraalNativeimageMicronautExampleCommand implements Runnable {
         // business logic here
         if (verbose) {
             println "Hi!"
+            
+            println "respone ${new URL("https://stackoverflow.com").getText()}"
         }
     }
 }
