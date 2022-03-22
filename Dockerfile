@@ -1,4 +1,4 @@
-FROM ghcr.io/graalvm/graalvm-ce:21.1.0 AS graal
+FROM ghcr.io/graalvm/graalvm-ce:22.0.0.2 AS graal
 
 FROM graal as maven-cache
 ENV MAVEN_OPTS=-Dmaven.repo.local=/mvn
@@ -32,10 +32,9 @@ RUN native-image -Dgroovy.grape.enable=false \
     --static \
     --allow-incomplete-classpath   \
     --report-unsupported-elements-at-runtime \
-    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
-    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy,org.codehaus.groovy.vmplugin.v8.Java8\$LookupHolder \
+    --initialize-at-build-time=com.sun.beans,groovy.lang,groovyjarjarantlr4.v4,java.beans,org.apache.groovy,org.codehaus.groovy \
     --no-fallback \
-    --no-server \
     -jar $(ls -S target/*.jar | head -n 1) \
     app
 
