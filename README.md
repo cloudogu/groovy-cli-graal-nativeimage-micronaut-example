@@ -62,7 +62,9 @@ Manually added
 * When running into exceptions such as the following:
   java.lang.ClassNotFoundException: org.codehaus.groovy.runtime.dgm$...
   groovy.lang.MissingMethodException: No signature of method: ...is applicable for argument types: ...
-  See here: https://github.com/croz-ltd/klokwrk-project/blob/57202c58b792aff5f47e4c9033f91e5a31f100cc/support/documentation/article/groovy-graalvm-native-image/groovy-graalvm-native-image.md#default-groovy-methods
+  See 
+  * [here](https://github.com/croz-ltd/klokwrk-project/blob/57202c58b792aff5f47e4c9033f91e5a31f100cc/support/documentation/article/groovy-graalvm-native-image/groovy-graalvm-native-image.md#default-groovy-methods) for a general overview and
+  * [this commit](https://github.com/cloudogu/gitops-playground/commit/2a169f661a9743938e1333fc3564a5e6f88cc4e4) for a working example
 * [More recent example: Groovy script as graal native image](https://dev.to/wololock/groovy-script-startup-time-from-2-1s-to-0-013s-with-graalvm-1p34), with [example project](https://github.com/wololock/gttp).
   This example shows how to build a groovy script. Our example here shows how to use classes and micronaut and a build tool.
 * [Older Example on how Graal could work with Groovy](https://e.printstacktrace.blog/graalvm-and-groovy-how-to-start/), with [example project](https://github.com/wololock/graalvm-groovy-examples). 
